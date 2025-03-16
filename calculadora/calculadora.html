@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <style>
+      .calculadora {
+        width: 270px;
+        margin: 50px auto;
+        border: 2px solid #dfdbdb;
+        padding: 12px;
+        border-radius: 5px;
+      }
+
+      #display {
+        width: 95%;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 18px;
+        text-align: right;
+      }
+
+      .botoes {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 5px;
+      }
+
+      .botoes button {
+        padding: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculadora">
+      <input type="text" id="display" disabled />
+      <div class="botoes">
+        <button onclick="adicionar('7')">7</button>
+        <button onclick="adicionar('8')">8</button>
+        <button onclick="adicionar('9')">9</button>
+        <button onclick="adicionar('+')">+</button>
+        <button onclick="adicionar('4')">4</button>
+        <button onclick="adicionar('5')">5</button>
+        <button onclick="adicionar('6')">6</button>
+        <button onclick="adicionar('-')">-</button>
+        <button onclick="adicionar('1')">1</button>
+        <button onclick="adicionar('2')">2</button>
+        <button onclick="adicionar('3')">3</button>
+        <button onclick="adicionar('*')">*</button>
+        <button onclick="limpar()">C</button>
+        <button onclick="adicionar('0')">0</button>
+        <button onclick="calcular()">=</button>
+        <button onclick="adicionar('/')">/</button>
+      </div>
+    </div>
+    <script>
+      let display = document.getElementById("display");
+
+      function adicionar(valor) {
+        display.value += valor;
+      }
+
+      function limpar() {
+        display.value = "";
+      }
+
+      function calcular() {
+        try {
+          display.value = eval(display.value);
+        } catch (error) {
+          display.value = "Erro";
+        }
+      }
+    </script>
+  </body>
+</html>
